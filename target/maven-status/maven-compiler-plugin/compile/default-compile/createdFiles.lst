@@ -1,0 +1,14 @@
+LatteGroup/AlayaIDEA/repository/UsersRepository.class
+LatteGroup/AlayaIDEA/document/Users.class
+LatteGroup/AlayaIDEA/document/Ideas.class
+LatteGroup/AlayaIDEA/config/MongoDBConfig.class
+LatteGroup/AlayaIDEA/controller/RestosController.class
+LatteGroup/AlayaIDEA/controller/IdeasController.class
+LatteGroup/AlayaIDEA/repository/IdeasRepository.class
+LatteGroup/AlayaIDEA/document/Comentarios.class
+LatteGroup/AlayaIDEA/document/Retos.class
+LatteGroup/AlayaIDEA/repository/RetosRepository.class
+LatteGroup/AlayaIDEA/repository/ComentariosRepository.class
+LatteGroup/AlayaIDEA/controller/ComentariosController.class
+LatteGroup/AlayaIDEA/controller/UsersController.class
+LatteGroup/AlayaIDEA/AlayaIdeaApplication.class
