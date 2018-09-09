@@ -21,7 +21,7 @@ import java.util.List;
 public class MongoDBConfig
 {
 
-   // @Bean
+   //@Bean
     CommandLineRunner commandLineRunner(UsersRepository usersRepository){
         return  strings -> {
             usersRepository.save(new Users(1, "Paty", 0));
@@ -31,7 +31,7 @@ public class MongoDBConfig
         };
     }
 
-    @Bean
+    //@Bean
     CommandLineRunner commandLineRunner(IdeasRepository ideasRepository)
     {
         Users user1 = new Users(1, "Paty", 0);
@@ -55,7 +55,7 @@ public class MongoDBConfig
         };
     }
 
-   // @Bean
+   @Bean
     CommandLineRunner commandLineRunner(RetosRepository retosRepository)
     {
         Users user1 = new Users(1, "Paty", 0);
