@@ -41,4 +41,31 @@ public class RestosController {
         return  retosRepository.save(reto);
     }
 
+    @RequestMapping(value = "/reto/{id}", method = RequestMethod.GET)    //id de reto
+    public Retos reto(@PathVariable ("id") Integer id)
+    {
+        return retosRepository.findOne(id);
+    }
+
+
+    @RequestMapping(value = "/update/reto/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Retos updateReto(@PathVariable ("id") Integer id, @RequestBody Retos reto)
+    {
+        Retos newReto = retosRepository.findOne(id);
+        newReto.setTitulo(reto.getTitulo());
+        newReto.setTexto(reto.getTexto());
+        newReto.setArea(reto.getArea());
+        newReto.setIdeas(reto.getIdeas());
+
+        return retosRepository.save(newReto);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(value = "/delete/reto/{id}", method = RequestMethod.DELETE)
+    public void deleteReto(@PathVariable ("id") Integer id)
+    {
+        Retos reto = retosRepository.findOne(id);
+        retosRepository.delete(reto);
+    }
+
 }

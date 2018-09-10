@@ -70,11 +70,9 @@ public class IdeasController {
         return  ideasRepository.save(idea);
     }
 
-    @RequestMapping(value = "/idea", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, params = {"id"})    //id de idea
-    public Ideas idea(@RequestParam ("id") Integer id)
+    @RequestMapping(value = "/idea/{id}", method = RequestMethod.GET)    //id de idea
+    public Ideas idea(@PathVariable ("id") Integer id)
     {
-        Ideas idea = ideasRepository.findOne(id);
-
-        return  idea;
+        return ideasRepository.findOne(id);
     }
 }
