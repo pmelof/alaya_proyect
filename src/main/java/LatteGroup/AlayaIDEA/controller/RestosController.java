@@ -1,7 +1,7 @@
 package LatteGroup.AlayaIDEA.controller;
 
-import LatteGroup.AlayaIDEA.document.Ideas;
-import LatteGroup.AlayaIDEA.document.Retos;
+import LatteGroup.AlayaIDEA.document.Idea;
+import LatteGroup.AlayaIDEA.document.Reto;
 import LatteGroup.AlayaIDEA.repository.RetosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -19,22 +19,22 @@ public class RestosController {
     private RetosRepository retosRepository;
 
     @GetMapping("/all")
-    public List<Retos>  getAll()
+    public List<Reto>  getAll()
     {
         return retosRepository.findAll();
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void create(@RequestBody Retos retos)
+    public void create(@RequestBody Reto reto)
     {
-        retosRepository.save(retos);
+        retosRepository.save(reto);
     }
 
     @RequestMapping(value = "/add/idea", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, params = {"id"})
-    public Retos addIdea(@RequestParam ("id") Integer id, @RequestBody Ideas idea )
+    public Reto addIdea(@RequestParam ("id") Integer id, @RequestBody Idea idea )
     {
-        Retos reto = retosRepository.findOne(id);
-        List<Ideas> nuevaLista = new ArrayList<>();
+        Reto reto = retosRepository.findOne(id);
+        List<Idea> nuevaLista = new ArrayList<>();
         nuevaLista = reto.getIdeas();
         nuevaLista.add(idea);
 

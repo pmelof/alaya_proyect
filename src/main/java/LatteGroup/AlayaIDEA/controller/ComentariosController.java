@@ -1,6 +1,6 @@
 package LatteGroup.AlayaIDEA.controller;
 
-import LatteGroup.AlayaIDEA.document.Comentarios;
+import LatteGroup.AlayaIDEA.document.Comentario;
 import LatteGroup.AlayaIDEA.repository.ComentariosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,13 +17,13 @@ public class ComentariosController {
     private ComentariosRepository comentariosRepository;
 
     @GetMapping("/all")
-    public List<Comentarios> getAll()
+    public List<Comentario> getAll()
     {
         return comentariosRepository.findAll();
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void create(@RequestBody Comentarios comentarios)
+    public void create(@RequestBody Comentario comentarios)
     {
         comentariosRepository.save(comentarios);
     }

@@ -1,6 +1,6 @@
 package LatteGroup.AlayaIDEA.controller;
 
-import LatteGroup.AlayaIDEA.document.Users;
+import LatteGroup.AlayaIDEA.document.Usuario;
 import LatteGroup.AlayaIDEA.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,14 +18,14 @@ public class UsersController {
 
 
     @GetMapping("/all")
-    public List<Users> getAll()
+    public List<Usuario> getAll()
     {
         return usersRepository.findAll();
     }
 
     //create
     @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void create(@RequestBody Users user)
+    public void create(@RequestBody Usuario user)
     {
         usersRepository.save(user);
     }
