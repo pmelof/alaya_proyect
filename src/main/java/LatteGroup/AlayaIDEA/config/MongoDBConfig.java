@@ -1,27 +1,16 @@
-package LatteGroup.AlayaIDEA.config;
+//package LatteGroup.AlayaIDEA.config;
 
-import LatteGroup.AlayaIDEA.document.Comentario;
-import LatteGroup.AlayaIDEA.document.Idea;
-import LatteGroup.AlayaIDEA.document.Reto;
-import LatteGroup.AlayaIDEA.document.Usuario;
-import LatteGroup.AlayaIDEA.repository.IdeasRepository;
-import LatteGroup.AlayaIDEA.repository.RetosRepository;
-import LatteGroup.AlayaIDEA.repository.UsersRepository;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
+import LatteGroup.AlayaIDEA.repository.UsuarioRepository;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-import java.util.ArrayList;
-import java.util.List;
-
-@EnableMongoRepositories(basePackageClasses = UsersRepository.class)
-@Configuration
-public class MongoDBConfig
-{
+//@EnableMongoRepositories(basePackageClasses = UsuarioRepository.class)
+//@Configuration
+//public class MongoDBConfig
+//{
 /*
    //@Bean
-    CommandLineRunner commandLineRunner(UsersRepository usersRepository){
+    CommandLineRunner commandLineRunner(UsuarioRepository usersRepository){
         return  strings -> {
             usersRepository.save(new Usuario(1, "Paty", 0));
             usersRepository.save(new Usuario(2, "Cris", 0));
@@ -55,7 +44,7 @@ public class MongoDBConfig
     }
 
    //@Bean
-    CommandLineRunner commandLineRunner(RetosRepository retosRepository)
+    CommandLineRunner commandLineRunner(RetoRepository retosRepository)
     {
         Usuario user1 = new Usuario(1, "Paty", 0);
         Usuario user2 = new Usuario(2, "Fernando", 0);
@@ -86,4 +75,4 @@ public class MongoDBConfig
         };
     }
 */
-}
+//}

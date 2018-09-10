@@ -2,7 +2,7 @@ package LatteGroup.AlayaIDEA.controller;
 
 import LatteGroup.AlayaIDEA.document.Comentario;
 import LatteGroup.AlayaIDEA.document.Idea;
-import LatteGroup.AlayaIDEA.repository.IdeasRepository;
+import LatteGroup.AlayaIDEA.repository.IdeaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -15,17 +15,17 @@ import java.util.List;
 public class IdeasController {
 
     @Autowired
-    private IdeasRepository ideasRepository;
+    private IdeaRepository ideasRepository;
 
     /* INDEX */
-    @GetMapping("")
+    /*@GetMapping("")
     public List<Idea> getAll()
     {
         return ideasRepository.findAll();
     }
 
     /* SHOW */
-    @CrossOrigin(origins = "http://localhost:4200")
+    /*@CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     public Idea show(@PathVariable Integer id){
         return this.ideasRepository.findOne(id);
@@ -75,5 +75,5 @@ public class IdeasController {
         nuevaLista.add(comentario);
 
         return  ideasRepository.save(idea);
-    }
+    }*/
 }

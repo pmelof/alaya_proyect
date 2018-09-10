@@ -2,7 +2,7 @@ package LatteGroup.AlayaIDEA.controller;
 
 import LatteGroup.AlayaIDEA.document.Idea;
 import LatteGroup.AlayaIDEA.document.Reto;
-import LatteGroup.AlayaIDEA.repository.RetosRepository;
+import LatteGroup.AlayaIDEA.repository.RetoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ import java.util.List;
 public class RestosController {
 
     @Autowired
-    private RetosRepository retosRepository;
+    private RetoRepository retosRepository;
 
     @GetMapping("/all")
     public List<Reto>  getAll()

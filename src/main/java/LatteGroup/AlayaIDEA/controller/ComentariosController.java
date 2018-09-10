@@ -1,7 +1,7 @@
 package LatteGroup.AlayaIDEA.controller;
 
 import LatteGroup.AlayaIDEA.document.Comentario;
-import LatteGroup.AlayaIDEA.repository.ComentariosRepository;
+import LatteGroup.AlayaIDEA.repository.ComentarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ import java.util.List;
 public class ComentariosController {
 
     @Autowired
-    private ComentariosRepository comentariosRepository;
+    private ComentarioRepository comentariosRepository;
 
     @GetMapping("/all")
     public List<Comentario> getAll()
