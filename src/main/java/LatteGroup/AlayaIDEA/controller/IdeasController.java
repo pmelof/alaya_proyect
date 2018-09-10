@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@CrossOrigin
 @RestController
 @RequestMapping("/rest/ideas")
 public class IdeasController {
@@ -18,10 +17,19 @@ public class IdeasController {
     @Autowired
     private IdeasRepository ideasRepository;
 
+    /* INDEX */
     @GetMapping("/all")
     public List<Ideas> getAll()
     {
         return ideasRepository.findAll();
+    }
+
+    /* SHOW */
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
+    public Ideas getIdeaById(@PathVariable Integer id)
+    {
+        return ideasRepository.findIdeaBy(id);
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
