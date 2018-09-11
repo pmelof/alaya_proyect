@@ -40,17 +40,37 @@ public class UsuarioController {
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     public Usuario show(@PathVariable String id)
     {
-        System.out.printf(this.usuarioRepository.findUsuarioById(id).getNombre());
         return this.usuarioRepository.findUsuarioById(id);
     }
 
     /* UPDATE */
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(value = "/update", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void update(@RequestBody Usuario usuario)
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void update(@PathVariable ("id") String id, @RequestBody Usuario usuario)
     {
-        usuarioRepository.save(usuario);
+        if (usuarioRepository.findUsuarioByNombre(usuario.getNombre()) == null)
+        {
+            Usuario actualizarUsuario = usuarioRepository.findUsuarioById(id);
+            actualizarUsuario.setNombre(usuario.getNombre());
+            actualizarUsuario.setRol(usuario.getRol());
+            actualizarUsuario.setRetos(usuario.getRetos());
+            actualizarUsuario.setIdeas(usuario.getIdeas());
+
+            this.usuarioRepository.save(actualizarUsuario);
+            //return "Usuario: "+actualizarUsuario.getId()+" actualizado";
+        }
+        //return "El nombre de usuario se encuentra en uso";
     }
+
+    /* DELETE */
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable ("id") String id)
+    {
+        Usuario usuario = usuarioRepository.findUsuarioById(id);
+        usuarioRepository.delete(usuario);
+    }
+
 
 
 
