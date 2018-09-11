@@ -1,13 +1,6 @@
 //package LatteGroup.AlayaIDEA.config;
 
-import LatteGroup.AlayaIDEA.document.Comentarios;
-import LatteGroup.AlayaIDEA.document.Ideas;
-import LatteGroup.AlayaIDEA.document.Retos;
-import LatteGroup.AlayaIDEA.document.Users;
-import LatteGroup.AlayaIDEA.repository.ComentariosRepository;
-import LatteGroup.AlayaIDEA.repository.IdeasRepository;
-import LatteGroup.AlayaIDEA.repository.RetosRepository;
-import LatteGroup.AlayaIDEA.repository.UsersRepository;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -85,7 +78,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
     }
 */
 //}
-
+/*
     @Bean
     CommandLineRunner commandLineRunner(ComentariosRepository comentariosRepository)
     {
@@ -100,4 +93,4 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
             comentariosRepository.save(new Comentarios(3, "No me convence del todo.", user3));
             comentariosRepository.save(new Comentarios(4, "Escribiste mal retos, pusiste restos.", user4));        };
     }
-}
+}*/
