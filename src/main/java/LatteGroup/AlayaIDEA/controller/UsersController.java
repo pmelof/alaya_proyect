@@ -8,26 +8,44 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin
+@CrossOrigin(value = "*")
 @RestController
-@RequestMapping("/rest/users")
+//@RequestMapping("/usuarios")
 public class UsersController {
 
     @Autowired
     private UsersRepository usersRepository;
 
-
-    @GetMapping("/all")
-    public List<Users> getAll()
-    {
-        return usersRepository.findAll();
+    @RequestMapping(value = "/usuarios", method = RequestMethod.GET)
+    @ResponseBody
+    @CrossOrigin
+    public List<Users> getUsuario(){
+        return this.usersRepository.findAll();
     }
 
-    //create
-    @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void create(@RequestBody Users user)
-    {
-        usersRepository.save(user);
+    @RequestMapping(value = "/usuarios/create", method = RequestMethod.POST)
+    @ResponseBody
+    @CrossOrigin
+    public Users createUsuario(@RequestBody Users usuario){
+
+        System.out.println("Name: "+usuario.getName());
+        return this.usersRepository.save(usuario);
     }
+
+    @RequestMapping(value = "/usuarios/{id}",method = RequestMethod.GET)
+    @CrossOrigin(origins = "*")
+    public Users getUsuarioById(@PathVariable Integer id){
+        return this.usersRepository.findUsuarioById(id);
+    }
+
+    @RequestMapping(value = "/usuarios/correo/{correo}", method = RequestMethod.GET)
+    @CrossOrigin(origins = "*")
+    public Users getUsuarioByCorreo(@PathVariable String correo){
+        System.out.println("correo "+correo);
+        return this.usersRepository.findUsuarioByCorreo(correo);
+    }
+
+
+
 
 }

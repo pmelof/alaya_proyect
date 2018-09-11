@@ -21,17 +21,18 @@ import java.util.List;
 public class MongoDBConfig
 {
 
-   //@Bean
+   @Bean
     CommandLineRunner commandLineRunner(UsersRepository usersRepository){
         return  strings -> {
-            usersRepository.save(new Users(1, "Paty", 0));
-            usersRepository.save(new Users(2, "Cris", 0));
-            usersRepository.save(new Users(3, "Mauri", 0));
-            usersRepository.save(new Users(4, "Persona", 1));
+            usersRepository.save(new Users(1, "Paty","paty@example.com", 0));
+            usersRepository.save(new Users(2, "Cris","cris@example.com", 0));
+            usersRepository.save(new Users(3, "Mauri","mauri@example.com", 0));
+            usersRepository.save(new Users(4, "Persona","persona@example.com", 1));
         };
     }
 
     //@Bean
+    /*
     CommandLineRunner commandLineRunner(IdeasRepository ideasRepository)
     {
         Users user1 = new Users(1, "Paty", 0);
@@ -55,7 +56,7 @@ public class MongoDBConfig
         };
     }
 
-   @Bean
+   //@Bean
     CommandLineRunner commandLineRunner(RetosRepository retosRepository)
     {
         Users user1 = new Users(1, "Paty", 0);
@@ -85,6 +86,6 @@ public class MongoDBConfig
         return strings -> {
             retosRepository.save(new Retos(1, "Titulo ejemplo en reto 1", "Este texto corresponde al ejemplo 1 de un reto.", "Área deInnovación en minería.", listaIdeas));
         };
-    }
+    }*/
 
 }
