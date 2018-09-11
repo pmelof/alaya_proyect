@@ -70,9 +70,4 @@ public class UsuarioController {
         Usuario usuario = usuarioRepository.findUsuarioById(id);
         usuarioRepository.delete(usuario);
     }
-
-
-
-
-
 }

@@ -11,10 +11,11 @@ public class Comentario {
     private String id;
 
     private String texto;
-    private Usuario autor;
 
+    @JsonIgnore
     @DBRef
     private Idea idea;
+    private Usuario usuario;
 
     public Comentario() {}
 
@@ -34,19 +35,19 @@ public class Comentario {
         this.texto = texto;
     }
 
-    public Usuario getAutor() {
-        return autor;
-    }
-
-    public void setAutor(Usuario autor) {
-        this.autor = autor;
-    }
-
     public Idea getIdea() {
         return idea;
     }
 
     public void setIdea(Idea idea) {
         this.idea = idea;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

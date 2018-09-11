@@ -17,6 +17,7 @@ public class Usuario {
     private String nombre;
     private Integer rol;
 
+    @JsonIgnore
     @DBRef
     private List<Idea> ideas;
     private List<Reto> retos;
