@@ -1,32 +1,36 @@
 package LatteGroup.AlayaIDEA.document;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
 import javax.persistence.Id;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Retos {
+public class Reto {
 
     @Id
-    private Integer id;
+    private String id;
+
     private String titulo;
     private String texto;
     private String area;
-    private List<Ideas> ideas;
 
-    public Retos() {}
+    @JsonIgnore
+    @DBRef
+    private List<Idea> ideas;
+    private Usuario usuario;
 
-    public Retos(Integer id,  String titulo , String texto, String area, List<Ideas> ideas) {
-        this.id = id;
-        this.titulo = titulo;
-        this.texto = texto;
-        this.area = area;
-        this.ideas = ideas;
+    public Reto()
+    {
+        setIdeas(new ArrayList<>());
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -54,11 +58,19 @@ public class Retos {
         this.area = area;
     }
 
-    public List<Ideas> getIdeas() {
+    public List<Idea> getIdeas() {
         return ideas;
     }
 
-    public void setIdeas(List<Ideas> ideas) {
+    public void setIdeas(List<Idea> ideas) {
         this.ideas = ideas;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
