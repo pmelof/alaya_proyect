@@ -69,4 +69,10 @@ public class IdeasController {
 
         return  ideasRepository.save(idea);
     }
+
+    @RequestMapping(value = "/idea/{id}", method = RequestMethod.GET)    //id de idea
+    public Ideas idea(@PathVariable ("id") Integer id)
+    {
+        return ideasRepository.findOne(id);
+    }
 }

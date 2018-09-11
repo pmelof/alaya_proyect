@@ -4,6 +4,7 @@ import LatteGroup.AlayaIDEA.document.Comentarios;
 import LatteGroup.AlayaIDEA.document.Ideas;
 import LatteGroup.AlayaIDEA.document.Retos;
 import LatteGroup.AlayaIDEA.document.Users;
+import LatteGroup.AlayaIDEA.repository.ComentariosRepository;
 import LatteGroup.AlayaIDEA.repository.IdeasRepository;
 import LatteGroup.AlayaIDEA.repository.RetosRepository;
 import LatteGroup.AlayaIDEA.repository.UsersRepository;
@@ -55,7 +56,7 @@ public class MongoDBConfig
         };
     }
 
-   @Bean
+  // @Bean
     CommandLineRunner commandLineRunner(RetosRepository retosRepository)
     {
         Users user1 = new Users(1, "Paty", 0);
@@ -87,4 +88,18 @@ public class MongoDBConfig
         };
     }
 
+    @Bean
+    CommandLineRunner commandLineRunner(ComentariosRepository comentariosRepository)
+    {
+        Users user1 = new Users(1, "Paty", 0);
+        Users user2 = new Users(2, "Fernando", 0);
+        Users user3 = new Users(3, "Cris", 1);
+        Users user4 = new Users(4, "Mauri", 1);
+
+        return strings -> {
+            comentariosRepository.save(new Comentarios(1, "Muy buena tu idea, estoy totalmente de acuerdo, te apoyo.", user1));
+            comentariosRepository.save(new Comentarios(2, "Sería bueno que agregaras el área en que va enfocado.", user2));
+            comentariosRepository.save(new Comentarios(3, "No me convence del todo.", user3));
+            comentariosRepository.save(new Comentarios(4, "Escribiste mal retos, pusiste restos.", user4));        };
+    }
 }
